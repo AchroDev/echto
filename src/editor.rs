@@ -22,12 +22,15 @@ impl Editor {
                     Key::Ctrl('q') => break,
                     _ => println!("{:?}\r", key),
                 },
-                Err(err) => die(err),
+                Err(err) => die(&err),
             }
         }
     }
+    pub fn default() -> Self {
+        Editor {}
+    }
 }
 
-fn die(e: std::io::Error) {
+fn die(e: &std::io::Error) {
     panic!("{}", e);
 }
