@@ -1,6 +1,8 @@
 [package]
 name = "echto"
 version = "0.1.0"
+authors = ["AchroDev <achrodev@proton.me>"]
 edition = "2021"
 
 [dependencies]
+termion = "1"
