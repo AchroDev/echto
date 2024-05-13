@@ -70,7 +70,10 @@ impl Editor {
         for row in 0..height - 1 {
             Terminal::clear_current_line();
             if row == height / 3 {
-                println!("Echto text editor -- version {}\r", VERSION)
+                let welcome_message = format!("Echto text editor -- version {}\r", VERSION);
+                let width =
+                    std::cmp::min(self.terminal.size().width as usize, welcome_message.len());
+                println!("{}\r", &welcome_message[..width]);
             } else {
                 println!("~\r");
             }
