@@ -73,7 +73,7 @@ impl Editor {
         let spaces = " ".repeat(padding.saturating_sub(1));
         welcome_message = format!("~{}{}", spaces, welcome_message);
         welcome_message.truncate(width);
-        println!("{}\r", &welcome_message[..width]);
+        println!("{}\r", welcome_message);
     }
 
     // Handles drawing each row of the buffer of text being edited
