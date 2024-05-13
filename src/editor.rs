@@ -1,3 +1,4 @@
+use crate::Terminal;
 use std::io::{self, stdout, Write};
 use termion::event::Key;
 use termion::input::TermRead;
@@ -6,6 +7,7 @@ use termion::raw::IntoRawMode;
 // Struct for defining the text editors configuration
 pub struct Editor {
     should_quit: bool,
+    terminal: Terminal,
 }
 
 // Implementation of Editor struct
@@ -35,7 +37,10 @@ impl Editor {
     // Defines the default state/configuration of self
     pub fn default() -> Self {
         // The default state is NOT to quit
-        Self { should_quit: false }
+        Self {
+            should_quit: false,
+            terminal: Terminal::default().expect("Failed to initalize terminal"),
+        }
     }
 
     // Refreshes the screen on open and exit, also resetting the cursor position to the top left.
@@ -62,7 +67,7 @@ impl Editor {
 
     // Handles drawing each row of the buffer of text being edited
     fn draw_rows(&self) {
-        for _ in 0..24 {
+        for _ in 0..self.terminal.size().height {
             println!("~\r");
         }
     }
