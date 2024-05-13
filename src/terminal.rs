@@ -73,4 +73,9 @@ impl Terminal {
     pub fn cursor_show() {
         print!("{}", termion::cursor::Show);
     }
+
+    // Clears the current line
+    pub fn clear_current_line() {
+        print!("{}", termion::clear::CurrentLine);
+    }
 }

@@ -40,9 +40,9 @@ impl Editor {
     // Refreshes the screen on open and exit, also resetting the cursor position to the top left.
     fn refresh_screen(&self) -> Result<(), std::io::Error> {
         Terminal::cursor_hide();
-        Terminal::clear_screen();
         Terminal::cursor_position(0, 0);
         if self.should_quit {
+            Terminal::clear_screen();
             println!("Thanks for using Echto!\r");
         } else {
             self.draw_rows();
@@ -65,6 +65,7 @@ impl Editor {
     // Handles drawing each row of the buffer of text being edited
     fn draw_rows(&self) {
         for _ in 0..self.terminal.size().height - 1 {
+            Terminal::clear_current_line();
             println!("~\r");
         }
     }
