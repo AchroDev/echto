@@ -34,6 +34,7 @@ impl Editor {
 
     // Defines the default state/configuration of self
     pub fn default() -> Self {
+        // The default state is NOT to quit
         Self { should_quit: false }
     }
 
