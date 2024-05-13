@@ -63,4 +63,14 @@ impl Terminal {
             }
         }
     }
+
+    // Hides the cursor
+    pub fn cursor_hide() {
+        print!("{}", termion::cursor::Hide);
+    }
+
+    // Shows the cursor
+    pub fn cursor_show() {
+        print!("{}", termion::cursor::Show);
+    }
 }
