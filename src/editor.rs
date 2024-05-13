@@ -1,6 +1,8 @@
 use crate::Terminal;
 use termion::event::Key;
 
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+
 // Struct for defining the text editors configuration
 pub struct Editor {
     should_quit: bool,
@@ -64,9 +66,14 @@ impl Editor {
 
     // Handles drawing each row of the buffer of text being edited
     fn draw_rows(&self) {
-        for _ in 0..self.terminal.size().height - 1 {
+        let height = self.terminal.size().height;
+        for row in 0..height - 1 {
             Terminal::clear_current_line();
-            println!("~\r");
+            if row == height / 3 {
+                println!("Echto text editor -- version {}", VERSION)
+            } else {
+                println!("~\r");
+            }
         }
     }
 }
