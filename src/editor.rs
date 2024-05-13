@@ -70,7 +70,7 @@ impl Editor {
         for row in 0..height - 1 {
             Terminal::clear_current_line();
             if row == height / 3 {
-                println!("Echto text editor -- version {}", VERSION)
+                println!("Echto text editor -- version {}\r", VERSION)
             } else {
                 println!("~\r");
             }
