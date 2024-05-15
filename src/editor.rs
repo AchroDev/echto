@@ -3,10 +3,17 @@ use termion::event::Key;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
+// Struct for tracking the cursors x and y position
+struct Position {
+    x: usize,
+    y: usize,
+}
+
 // Struct for defining the text editors configuration
 pub struct Editor {
     should_quit: bool,
     terminal: Terminal,
+    cursor_position: Position,
 }
 
 // Implementation of Editor struct
@@ -36,6 +43,7 @@ impl Editor {
         Self {
             should_quit: false,
             terminal: Terminal::default().expect("Failed to initalize terminal"),
+            cursor_position: Position { x: 0, y: 0 },
         }
     }
 
