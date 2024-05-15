@@ -4,9 +4,9 @@ use termion::event::Key;
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 // Struct for tracking the cursors x and y position
-struct Position {
-    x: usize,
-    y: usize,
+pub struct Position {
+    pub x: usize,
+    pub y: usize,
 }
 
 // Struct for defining the text editors configuration
@@ -50,13 +50,13 @@ impl Editor {
     // Refreshes the screen on open and exit, also resetting the cursor position to the top left.
     fn refresh_screen(&self) -> Result<(), std::io::Error> {
         Terminal::cursor_hide();
-        Terminal::cursor_position(0, 0);
+        Terminal::cursor_position(&Position { X: 0, y: 0 });
         if self.should_quit {
             Terminal::clear_screen();
-            println!("Thanks for using Echto!\r");
+            println!("Thanks for using Echto! - AchroDev\r");
         } else {
             self.draw_rows();
-            Terminal::cursor_position(0, 0);
+            Terminal::cursor_position(&self.cursor_position);
         }
         Terminal::cursor_show();
         Terminal::flush()
