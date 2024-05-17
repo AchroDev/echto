@@ -50,7 +50,7 @@ impl Editor {
     // Refreshes the screen on open and exit, also resetting the cursor position to the top left.
     fn refresh_screen(&self) -> Result<(), std::io::Error> {
         Terminal::cursor_hide();
-        Terminal::cursor_position(&Position { X: 0, y: 0 });
+        Terminal::cursor_position(&Position { x: 0, y: 0 });
         if self.should_quit {
             Terminal::clear_screen();
             println!("Thanks for using Echto! - AchroDev\r");
@@ -67,9 +67,23 @@ impl Editor {
         let pressed_key = Terminal::read_key()?;
         match pressed_key {
             Key::Ctrl('q') => self.should_quit = true,
+            Key::Up | Key::Down | Key::Left | Key::Right => self.move_cursor(pressed_key),
             _ => (),
         }
         Ok(())
+    }
+
+    // Moves the cursor along the x and y axis depending on which arrow key is used
+    fn move_cursor(&mut self, key: Key) {
+        let Position { mut y, mut x } = self.cursor_position;
+        match key {
+            Key::Up => y = y.saturating_sub(1),
+            Key::Down => y = y.saturating_add(1),
+            Key::Left => x = x.saturating_sub(1),
+            Key::Right => x = x.saturating_add(1),
+            _ => (),
+        }
+        self.cursor_position = Position { x, y }
     }
 
     // Draws the welcome message
