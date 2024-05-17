@@ -1,3 +1,5 @@
+use std::fmt::DebugList;
+
 use crate::Document;
 use crate::Terminal;
 use termion::event::Key;
@@ -5,6 +7,7 @@ use termion::event::Key;
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 // Struct for tracking the cursors x and y position
+#[derive(Default)]
 pub struct Position {
     pub x: usize,
     pub y: usize,
@@ -46,14 +49,14 @@ impl Editor {
             should_quit: false,
             terminal: Terminal::default().expect("Failed to initalize terminal"),
             document: Document::default(),
-            cursor_position: Position { x: 0, y: 0 },
+            cursor_position: Position::default(),
         }
     }
 
     // Refreshes the screen on open and exit, also resetting the cursor position to the top left.
     fn refresh_screen(&self) -> Result<(), std::io::Error> {
         Terminal::cursor_hide();
-        Terminal::cursor_position(&Position { x: 0, y: 0 });
+        Terminal::cursor_position(&Position::default());
         if self.should_quit {
             Terminal::clear_screen();
             println!("Thanks for using Echto! - AchroDev\r");
