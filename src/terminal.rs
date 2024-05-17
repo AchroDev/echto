@@ -52,7 +52,7 @@ impl Terminal {
         y = y.saturating_add(1);
         let x = x as u16;
         let y = y as u16;
-        print!("{}", termion::cursor::Goto(1, 1));
+        print!("{}", termion::cursor::Goto(x, y));
     }
 
     // When called, forces stdout to print out everything it has, either wrapping nothing or erroring
