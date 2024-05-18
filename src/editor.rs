@@ -92,7 +92,28 @@ impl Editor {
             | Key::End => self.move_cursor(pressed_key),
             _ => (),
         }
+        self.scroll();
         Ok(())
+    }
+
+    /* Checks for if the cursor moves outside of the visible window, and if so, adjusts the offset
+     *  so that the cursor is just inside the visible window.
+     */
+    fn scroll(&mut self) {
+        let Position { x, y } = self.cursor_position;
+        let width = self.terminal.size().width as usize;
+        let height = self.terminal.size().height as usize;
+        let mut offset = &mut self.offset;
+        if y < offset.y {
+            offset.y = y;
+        } else if y > offset.y.saturating_add(height) {
+            offset.y = y.saturating_sub(height).saturating_add(1);
+        }
+        if x < offset.x {
+            offset.x = x;
+        } else if x > offset.x.saturating_add(width) {
+            offset.x = x.saturating_sub(width).saturating_add(1);
+        }
     }
 
     // Moves the cursor along the x and y axis depending on which arrow key is used
