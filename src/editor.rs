@@ -18,6 +18,7 @@ pub struct Editor {
     should_quit: bool,
     terminal: Terminal,
     cursor_position: Position,
+    offset: Position,
     document: Document,
 }
 
@@ -57,6 +58,7 @@ impl Editor {
             terminal: Terminal::default().expect("Failed to initalize terminal"),
             document,
             cursor_position: Position::default(),
+            offset: Position::default(),
         }
     }
 
