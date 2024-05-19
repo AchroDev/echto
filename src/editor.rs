@@ -2,7 +2,6 @@ use crate::Document;
 use crate::Row;
 use crate::Terminal;
 use std::env;
-use std::os::linux::raw::stat;
 use termion::color;
 use termion::event::Key;
 
