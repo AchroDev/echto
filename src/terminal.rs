@@ -1,5 +1,6 @@
 use crate::Position;
 use std::io::{self, stdout, Write};
+use termion::color;
 use termion::event::Key;
 use termion::input::TermRead;
 use termion::raw::{IntoRawMode, RawTerminal};
@@ -82,5 +83,15 @@ impl Terminal {
     // Clears the current line
     pub fn clear_current_line() {
         print!("{}", termion::clear::CurrentLine);
+    }
+
+    // Sets the background to a selected color
+    pub fn set_bg_color(color: color::Rgb) {
+        print!("{}", color::Bg(color));
+    }
+
+    // Resets the background color
+    pub fn reset_bg_color() {
+        print!("{}", color::Bg(color::Reset));
     }
 }
