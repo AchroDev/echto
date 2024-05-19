@@ -28,7 +28,7 @@ impl Terminal {
             // Converting the terminal_size into a "Size"
             size: Size {
                 width: size.0,
-                height: size.1,
+                height: size.1.saturating_sub(2),
             },
             _stdout: stdout().into_raw_mode()?,
         })
