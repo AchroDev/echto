@@ -2,9 +2,11 @@ use crate::Document;
 use crate::Row;
 use crate::Terminal;
 use std::env;
+use termion::color;
 use termion::event::Key;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
+const STATUS_BG_COLOR: color::Rgb = color::Rgb(0, 170, 170);
 
 // Struct for tracking the cursors x and y position
 #[derive(Default)]
@@ -71,6 +73,7 @@ impl Editor {
             println!("Thanks for using Echto! - AchroDev\r");
         } else {
             self.draw_rows();
+            self.draw_status_bar();
             Terminal::cursor_position(&Position {
                 x: self.cursor_position.x.saturating_sub(self.offset.x),
                 y: self.cursor_position.y.saturating_sub(self.offset.y),
@@ -219,6 +222,19 @@ impl Editor {
                 println!("~\r");
             }
         }
+    }
+
+    // Draws the status bar at the previously cleared spot at the bottom of the screen
+    fn draw_status_bar(&self) {
+        let spaces = " ".repeat(self.terminal.size().width as usize);
+        Terminal::set_bg_color(STATUS_BG_COLOR);
+        println!("{}\r", spaces);
+        Terminal::reset_bg_color();
+    }
+
+    // Draws the message bar
+    fn draw_message_bar(&self) {
+        Terminal::clear_current_line();
     }
 }
 
