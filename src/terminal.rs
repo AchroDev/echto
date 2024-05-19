@@ -94,4 +94,14 @@ impl Terminal {
     pub fn reset_bg_color() {
         print!("{}", color::Bg(color::Reset));
     }
+
+    // Sets the foreground to a selected color
+    pub fn set_fg_color(color: color::Rgb) {
+        print!("{}", color::Fg(color));
+    }
+
+    // Resets the foreground color
+    pub fn reset_fg_color() {
+        print!("{}", color::Fg(color::Reset));
+    }
 }
