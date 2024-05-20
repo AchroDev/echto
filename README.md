@@ -17,17 +17,28 @@
   </p>
 </div>
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
+![MadeForBadge][made-for-link]
+<a href='https://ko-fi.com/R6R3WKVOY' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+</a>
+
+![EchtoSS1][screenshot]
+![EchtoSS2][screenshot2]
+<!-- ![EchtoSS3](/images/screenshot3.png)
+![EchtoSS4](/images/screenshot4.png) -->
+
 # 
 
-**Table of Contents**
+## Table of Contents
 
-[Source](/src/main.rs)
-
+> 1. [Source][source]   
+> 2. TODO: Add content   
+> 3. TODO: Add content   
 #
 
-**Instructions**
-
-#
+## Instructions
+> TODO: Add instructions for how to use the CLI application
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -41,3 +52,7 @@
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [license-shield]: https://img.shields.io/github/license/AchroDev/AchroDev.svg?style=for-the-badge
 [license-url]: https://github.com/AchroDev/echto/blob/main/LICENSE.txt
+[made-for-link]: https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white
+[source]: /src/main.rs
+[screenshot]: /images/screenshot.png
+[screenshot2]: /images/screenshot2.png
