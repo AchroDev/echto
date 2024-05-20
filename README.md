@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/AchroDev/echto">
-    <img src ="images/rust_rusty.png" alt="Logo" width="65" height="65">
+    <img src ="images/echto-logo.svg" alt="Logo" width="200" height="200">
   </a>
 <h3 align="center"> Echto - Text Editor ~ AchroDev </h3>
 
@@ -25,8 +25,6 @@
 
 ![EchtoSS1][screenshot]
 ![EchtoSS2][screenshot2]
-<!-- ![EchtoSS3](/images/screenshot3.png)
-![EchtoSS4](/images/screenshot4.png) -->
 
 # 
 
@@ -42,11 +40,11 @@
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Hecto: Build your own text editor](https://archive.flenker.blog/hecto/)
-* [README template](https://github.com/othneildrew/Best-README-Template)
-* [Rust-lang](https://www.rust-lang.org/)
-* [The Rust Programming Language (Book)](https://doc.rust-lang.org/stable/book/)
-* [Same as above but by Brown University with quizzes built-in](https://rust-book.cs.brown.edu/)
+* [Hecto: Build your own text editor][hecto-guide]
+* [README template][readme-template]
+* [Rust-lang][rust-lang]
+* [The Rust Programming Language (Book)][rust-book]
+* [Same as above but by Brown University with quizzes built-in][rust-book-brownuni]
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -56,3 +54,8 @@
 [source]: /src/main.rs
 [screenshot]: /images/screenshot.png
 [screenshot2]: /images/screenshot2.png
+[hecto-guide]: https://archive.flenker.blog/hecto/
+[readme-template]: https://github.com/othneildrew/Best-README-Template
+[rust-lang]: https://www.rust-lang.org/
+[rust-book]: https://doc.rust-lang.org/stable/book/
+[rust-book-brownuni]: https://rust-book.cs.brown.edu/
