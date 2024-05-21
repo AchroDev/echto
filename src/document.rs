@@ -45,7 +45,7 @@ impl Document {
         }
     }
 
-    // Deletes character before the cursor
+    // Deletes character at given position
     pub fn delete(&mut self, at: &Position) {
         if at.y >= self.len() {
             return;

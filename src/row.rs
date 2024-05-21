@@ -63,7 +63,7 @@ impl Row {
         self.update_len();
     }
 
-    // Deletes character before the cursor at given position
+    // Deletes character at given position
     pub fn delete(&mut self, at: usize) {
         if at >= self.len() {
             return;
