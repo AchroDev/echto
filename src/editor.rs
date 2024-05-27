@@ -119,7 +119,7 @@ impl Editor {
             let new_name = self.prompt("Save as: ").unwrap_or(None);
             if new_name.is_none() {
                 self.status_message =
-                    StatusMessage::from("Save aborted. No file_name is given.".to_string());
+                    StatusMessage::from("Save aborted. No file_name is given.".to_owned());
                 return;
             }
             self.document.file_name = new_name;
