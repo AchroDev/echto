@@ -313,7 +313,7 @@ impl Editor {
         } else {
             ""
         };
-        let mut file_name = "[No Name]".to_string();
+        let mut file_name = "[No Name]".to_owned();
         if let Some(name) = &self.document.file_name {
             file_name = name.clone();
             file_name.truncate(20);
