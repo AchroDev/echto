@@ -329,6 +329,7 @@ impl Editor {
             self.cursor_position.y.saturating_add(1),
             self.document.len()
         );
+        #[allow(clippy::arithmetic_side_effects)]
         let len = status.len() + line_indicator.len();
         status.push_str(&" ".repeat(width.saturating_sub(len)));
         status = format!("{}{}", status, line_indicator);
