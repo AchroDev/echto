@@ -9,16 +9,15 @@ pub struct Row {
 
 impl From<&str> for Row {
     fn from(slice: &str) -> Self {
-        let mut row = Self {
+        Self {
             string: String::from(slice),
-            len: 0,
-        };
-        row.update_len();
-        row
+            len: slice.graphemes(true).count(),
+        }
     }
 }
 
 impl Row {
+    #[must_use]
     pub fn render(&self, start: usize, end: usize) -> String {
         let end = cmp::min(end, self.string.len());
         let start = cmp::min(start, end);
@@ -38,16 +37,14 @@ impl Row {
         result
     }
 
+    #[must_use]
     pub fn len(&self) -> usize {
         self.len
     }
 
+    #[must_use]
     pub fn is_empty(&self) -> bool {
         self.len == 0
-    }
-
-    fn update_len(&mut self) {
-        self.len = self.string[..].graphemes(true).count();
     }
 
     // Inserts a character at a given position in the grapheme
@@ -55,43 +52,71 @@ impl Row {
         if at >= self.len() {
             self.string.push(c);
         } else {
-            let mut result: String = self.string[..].graphemes(true).take(at).collect();
-            let remainder: String = self.string[..].graphemes(true).skip(at).collect();
-            result.push(c);
-            result.push_str(&remainder);
-            self.string = result;
+            self.len += 1;
+            return;
         }
-        self.update_len();
+        let mut result = String::new();
+        let mut length = 0;
+        for (index, grapheme) in self.string[..].graphemes(true).enumerate() {
+            if index != at {
+                length += 1;
+                result.push_str(grapheme);
+            }
+        }
+        self.len = length;
+        self.string = result;
     }
 
-    #[allow(clippy::arithmetic_side_effects)]
     // Deletes character at given position
     pub fn delete(&mut self, at: usize) {
         if at >= self.len() {
             return;
         }
-        let mut result: String = self.string[..].graphemes(true).take(at).collect();
-        let remainder: String = self.string[..].graphemes(true).skip(at + 1).collect();
-        result.push_str(&remainder);
+        let mut result = String::new();
+        let mut length = 0;
+        for (index, grapheme) in self.string[..].graphemes(true).enumerate() {
+            if index != at {
+                length += 1;
+                result.push_str(grapheme);
+            }
+        }
+        self.len = length;
         self.string = result;
-        self.update_len();
     }
 
+    #[allow(clippy::arithmetic_side_effects)]
     // Appends another row to Row when called
     pub fn append(&mut self, new: &Self) {
         self.string = format!("{}{}", self.string, new.string);
-        self.update_len();
+        self.len += new.len;
     }
 
+    #[must_use]
     // Creates the ability to split a Row
     pub fn split(&mut self, at: usize) -> Self {
-        let beginning: String = self.string[..].graphemes(true).take(at).collect();
-        let remainder: String = self.string[..].graphemes(true).skip(at).collect();
-        self.string = beginning;
-        self.update_len();
-        Self::from(&remainder[..])
+        let mut row = String::new();
+        let mut length = 0;
+        let mut splitted_row = String::new();
+        let mut splitted_length = 0;
+        for (index, grapheme) in self.string[..].graphemes(true).enumerate() {
+            if index < at {
+                length += 1;
+                row.push_str(grapheme);
+            } else {
+                splitted_length += 1;
+                splitted_row.push_str(grapheme);
+            }
+        }
+
+        self.string = row;
+        self.len = length;
+        Self {
+            string: splitted_row,
+            len: splitted_length,
+        }
     }
 
+    #[must_use]
     // Returns a byte-slice of the strings contents
     pub fn as_bytes(&self) -> &[u8] {
         self.string.as_bytes()
