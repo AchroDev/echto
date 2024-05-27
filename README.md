@@ -36,11 +36,13 @@
 #
 
 ## Instructions
-
+>
+> Find:  
+> `Ctrl-F`  
 > Save:  
-> ```Ctrl+S```  
+> `Ctrl+S`  
 > Quit:  
-> ```Ctrl+Q```
+> `Ctrl+Q`
 >  
 > TODO: ADD: Separate document for instructions and link to it here.
 
