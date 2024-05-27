@@ -112,7 +112,8 @@ impl Document {
         self.dirty
     }
 
-    // Searches a single Row and returns the position of a query match
+    #[must_use]
+    // Searches the document and returns the position of a query match
     pub fn find(&self, query: &str) -> Option<Position> {
         for (y, row) in self.rows.iter().enumerate() {
             if let Some(x) = row.find(query) {
