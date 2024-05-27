@@ -35,6 +35,7 @@ impl Terminal {
         })
     }
 
+    #[must_use]
     // Declares the size to be returned as a read-only reference to our internal size
     pub fn size(&self) -> &Size {
         &self.size

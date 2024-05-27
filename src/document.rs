@@ -19,19 +19,22 @@ impl Document {
         }
         Ok(Self {
             rows,
-            file_name: Some(filename.to_string()),
+            file_name: Some(filename.to_owned()),
             dirty: false,
         })
     }
 
+    #[must_use]
     pub fn row(&self, index: usize) -> Option<&Row> {
         self.rows.get(index)
     }
 
+    #[must_use]
     pub fn is_empty(&self) -> bool {
         self.rows.is_empty()
     }
 
+    #[must_use]
     pub fn len(&self) -> usize {
         self.rows.len()
     }
@@ -103,6 +106,7 @@ impl Document {
         Ok(())
     }
 
+    #[must_use]
     // Detects if there has been a change marking the file "dirty"
     pub fn is_dirty(&self) -> bool {
         self.dirty
