@@ -36,7 +36,13 @@
 #
 
 ## Instructions
-> TODO: Add instructions for how to use the CLI application
+
+> Save:  
+> ```Ctrl+S```  
+> Quit:  
+> ```Ctrl+Q```
+>  
+> TODO: ADD: Separate document for instructions and link to it here.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
