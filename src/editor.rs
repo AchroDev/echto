@@ -269,6 +269,7 @@ impl Editor {
         let mut welcome_message = format!("Echto text editor -- version {}\r", VERSION);
         let width = self.terminal.size().width as usize;
         let len = welcome_message.len();
+        #[allow(clippy::arithmetic_side_effects, clippy::integer_division)]
         let padding = width.saturating_sub(len) / 2;
         let spaces = " ".repeat(padding.saturating_sub(1));
         welcome_message = format!("~{}{}", spaces, welcome_message);
@@ -285,6 +286,7 @@ impl Editor {
         println!("{}\r", row);
     }
 
+    #[allow(clippy::arithmetic_side_effects, clippy::integer_division)]
     // Handles drawing each row of the buffer of text being edited
     fn draw_rows(&self) {
         let height = self.terminal.size().height;
