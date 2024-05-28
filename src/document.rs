@@ -114,8 +114,9 @@ impl Document {
 
     #[must_use]
     // Searches the document and returns the position of a query match
-    pub fn find(&self, query: &str) -> Option<Position> {
-        for (y, row) in self.rows.iter().enumerate() {
+    pub fn find(&self, query: &str, after: &Position) -> Option<Position> {
+        let mut x = after.x;
+        for (y, row) in self.rows.iter().enumerate().skip(after.y) {
             if let Some(x) = row.find(query) {
                 return Some(Position { x, y });
             }
