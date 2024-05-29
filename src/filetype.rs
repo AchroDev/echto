@@ -7,6 +7,7 @@ pub struct FileType {
 pub struct HighlightingOptions {
     numbers: bool,
     strings: bool,
+    characters: bool,
 }
 
 impl Default for FileType {
@@ -37,6 +38,7 @@ impl FileType {
                 hl_opts: HighlightingOptions {
                     numbers: true,
                     strings: true,
+                    characters: true,
                 },
             };
         }
@@ -46,6 +48,7 @@ impl FileType {
                 hl_opts: HighlightingOptions {
                     numbers: true,
                     strings: true,
+                    characters: true,
                 },
             };
         } else if file_name.ends_with(".kts") {
@@ -54,6 +57,7 @@ impl FileType {
                 hl_opts: HighlightingOptions {
                     numbers: true,
                     strings: true,
+                    characters: true,
                 },
             };
         }
@@ -63,6 +67,7 @@ impl FileType {
                 hl_opts: HighlightingOptions {
                     numbers: true,
                     strings: true,
+                    characters: true,
                 },
             };
         }
@@ -79,5 +84,10 @@ impl HighlightingOptions {
     #[must_use]
     pub fn strings(self) -> bool {
         self.strings
+    }
+
+    #[must_use]
+    pub fn characters(self) -> bool {
+        self.characters
     }
 }
