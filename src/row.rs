@@ -128,8 +128,8 @@ impl Row {
         self.len = length;
         Self {
             string: splitted_row,
-            highlighting: Vec::new(),
             len: splitted_length,
+            highlighting: Vec::new(),
         }
     }
 
