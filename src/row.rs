@@ -1,7 +1,6 @@
 use crate::highlighting;
 use crate::SearchDirection;
 use std::cmp;
-use std::thread::current;
 use termion::color;
 use unicode_segmentation::UnicodeSegmentation;
 
