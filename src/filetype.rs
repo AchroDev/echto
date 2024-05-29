@@ -16,3 +16,10 @@ impl Default for FileType {
         }
     }
 }
+
+impl FileType {
+    #[must_use]
+    pub fn name(&self) -> String {
+        self.name.clone()
+    }
+}

@@ -31,6 +31,11 @@ impl Document {
     }
 
     #[must_use]
+    pub fn file_type(&self) -> String {
+        self.file_type.name()
+    }
+
+    #[must_use]
     pub fn row(&self, index: usize) -> Option<&Row> {
         self.rows.get(index)
     }
