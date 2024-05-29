@@ -2,7 +2,6 @@ use crate::Document;
 use crate::Row;
 use crate::Terminal;
 use std::env;
-use std::fmt::format;
 use std::time::Duration;
 use std::time::Instant;
 use termion::color;
