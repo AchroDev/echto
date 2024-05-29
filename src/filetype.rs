@@ -42,6 +42,12 @@ impl FileType {
                 hl_opts: HighlightingOptions { numbers: true },
             };
         }
+        if file_name.ends_with(".go") {
+            return Self {
+                name: String::from("Go"),
+                hl_opts: HighlightingOptions { numbers: true },
+            };
+        }
         Self::default()
     }
 }
