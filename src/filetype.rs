@@ -31,6 +31,17 @@ impl FileType {
                 hl_opts: HighlightingOptions { numbers: true },
             };
         }
+        if file_name.ends_with(".kt") {
+            return Self {
+                name: String::from("Kotlin"),
+                hl_opts: HighlightingOptions { numbers: true },
+            };
+        } else if file_name.ends_with(".kts") {
+            return Self {
+                name: String::from("Kotlin"),
+                hl_opts: HighlightingOptions { numbers: true },
+            };
+        }
         Self::default()
     }
 }
