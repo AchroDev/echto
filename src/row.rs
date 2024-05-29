@@ -178,4 +178,17 @@ impl Row {
         }
         None
     }
+
+    // Stores characters of a string in a vector that tags them as a number or none and if it's a number, it will highlight it
+    pub fn highlight(&mut self) {
+        let mut highlighting = Vec::new();
+        for c in self.string.chars() {
+            if c.is_ascii_digit() {
+                highlighting.push(highlighting::Type::Number);
+            } else {
+                highlighting.push(highlighting::Type::None);
+            }
+        }
+        self.highlighting = highlighting;
+    }
 }
