@@ -22,4 +22,15 @@ impl FileType {
     pub fn name(&self) -> String {
         self.name.clone()
     }
+
+    #[must_use]
+    pub fn from(file_name: &str) -> Self {
+        if file_name.ends_with(".rs") {
+            return Self {
+                name: String::from("Rust"),
+                hl_opts: HighlightingOptions { numbers: true },
+            };
+        }
+        Self::default()
+    }
 }
