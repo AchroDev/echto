@@ -5,7 +5,7 @@ pub struct FileType {
 
 #[derive(Default, Clone, Copy)]
 pub struct HighlightingOptions {
-    pub numbers: bool,
+    numbers: bool,
 }
 
 impl Default for FileType {
@@ -54,5 +54,11 @@ impl FileType {
             };
         }
         Self::default()
+    }
+}
+
+impl HighlightingOptions {
+    pub fn numbers(self) -> bool {
+        self.numbers
     }
 }
