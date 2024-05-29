@@ -59,7 +59,7 @@
 [license-shield]: https://img.shields.io/github/license/AchroDev/AchroDev.svg?style=for-the-badge
 [license-url]: https://github.com/AchroDev/echto/blob/main/LICENSE.txt
 [made-for-link]: https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white
-[source]: /src/main.rs
+[source]: /src
 [screenshot]: /images/screenshot.png
 [screenshot2]: /images/screenshot2.png
 [hecto-guide]: https://archive.flenker.blog/hecto/
