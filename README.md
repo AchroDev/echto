@@ -31,8 +31,8 @@
 ## Table of Contents
 
 > 1. [Source][source]   
-> 2. TODO: Add content   
-> 3. TODO: Add content   
+> 2. [Instructions][instructions] 
+> 3. [Acknowledgements][acknowledgements]  
 #
 
 ## Instructions
@@ -67,3 +67,5 @@
 [rust-lang]: https://www.rust-lang.org/
 [rust-book]: https://doc.rust-lang.org/stable/book/
 [rust-book-brownuni]: https://rust-book.cs.brown.edu/
+[instructions]: https://github.com/AchroDev/echto?tab=readme-ov-file#instructions
+[Acknowledgements]: https://github.com/AchroDev/echto?tab=readme-ov-file#acknowledgements
