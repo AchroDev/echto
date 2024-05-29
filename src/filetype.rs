@@ -58,6 +58,7 @@ impl FileType {
 }
 
 impl HighlightingOptions {
+    #[must_use]
     pub fn numbers(self) -> bool {
         self.numbers
     }
