@@ -8,6 +8,7 @@ pub struct HighlightingOptions {
     numbers: bool,
     strings: bool,
     characters: bool,
+    comments: bool,
 }
 
 impl Default for FileType {
@@ -39,6 +40,7 @@ impl FileType {
                     numbers: true,
                     strings: true,
                     characters: true,
+                    comments: true,
                 },
             };
         }
@@ -49,6 +51,7 @@ impl FileType {
                     numbers: true,
                     strings: true,
                     characters: true,
+                    comments: true,
                 },
             };
         } else if file_name.ends_with(".kts") {
@@ -58,6 +61,7 @@ impl FileType {
                     numbers: true,
                     strings: true,
                     characters: true,
+                    comments: true,
                 },
             };
         }
@@ -68,6 +72,7 @@ impl FileType {
                     numbers: true,
                     strings: true,
                     characters: true,
+                    comments: true,
                 },
             };
         }
@@ -89,5 +94,10 @@ impl HighlightingOptions {
     #[must_use]
     pub fn characters(self) -> bool {
         self.characters
+    }
+
+    #[must_use]
+    pub fn comments(self) -> bool {
+        self.comments
     }
 }
