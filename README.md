@@ -12,10 +12,13 @@
 <h3 align="center"> Echto - Text Editor ~ AchroDev </h3>
 
   <p align="center">
-    This is a custom text editor I am currently writing while following the guide in the acknowledgements. Please feel free to fork it, modify it and do a pull request if you would like to help out.
+    This is a custom text editor I am currently writing while following the guide in the acknowledgements. Please feel free to clone the repository and test it out.
     <br />
   </p>
 </div>
+
+> [!WARNING]  
+> At somewhere around chapter 5-6 this editor quit taking input, at chapter 7 before finishing the comment highlighting, the editor hangs when opening a file. This project is being put on the side for now until the new guide is finished or I feel experienced enough to rewrite it.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -43,8 +46,7 @@
 > `Ctrl+S`  
 > Quit:  
 > `Ctrl+Q`
->  
-> TODO: ADD: Separate document for instructions and link to it here.
+
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
