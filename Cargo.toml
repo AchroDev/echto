@@ -2,8 +2,9 @@
 name = "echto"
 version = "0.1.0"
 authors = ["AchroDev <achrodev@proton.me>"]
-edition = "2021"
+edition = "2018"
 
 [dependencies]
 termion = "1"
 unicode-segmentation = "1"
+
