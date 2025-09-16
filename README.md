@@ -17,8 +17,8 @@
   </p>
 </div>
 
-> [!WARNING]  
-> At somewhere around chapter 5-6 this editor quit taking input, at chapter 7 before finishing the comment highlighting, the editor hangs when opening a file. This project is being put on the side for now until the new guide is finished or I feel experienced enough to rewrite it.
+> [!IMPORTANT]  
+> Echo has been fixed and now takes input again. Due to a previous logical error in row.rs[row-rs], my `insert` func failed to actually add the character to the row's string, instead only increasing the row's internal length counter. That logical error is what caused Echto to not take input. I've still noticed some hanging when opening certain files, ones I believe are directly related to Echto's source code. Otherwise, I've tested on other fairly large files without issue.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -64,6 +64,7 @@
 [source]: /src
 [screenshot]: /images/screenshot.png
 [screenshot2]: /images/screenshot2.png
+[row-rs]: /src/row.rs
 [hecto-guide]: https://archive.flenker.blog/hecto/
 [readme-template]: https://github.com/othneildrew/Best-README-Template
 [rust-lang]: https://www.rust-lang.org/
