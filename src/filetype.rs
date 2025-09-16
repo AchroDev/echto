@@ -65,6 +65,27 @@ impl FileType {
                 },
             };
         }
+        if file_name.ends_with(".js") {
+            return Self {
+                name: String::from("JavaScript"),
+                hl_opts: HighlightingOptions {
+                    numbers: true,
+                    strings: true,
+                    characters: true,
+                    comments: true,
+                },
+            };
+        } else if file_name.ends_with(".jsx") {
+            return Self {
+                name: String::from("JavaScript XML (React)"),
+                hl_opts: HighlightingOptions {
+                    numbers: true,
+                    strings: true,
+                    characters: true,
+                    comments: true,
+                },
+            };
+        }
         if file_name.ends_with(".go") {
             return Self {
                 name: String::from("Go"),
