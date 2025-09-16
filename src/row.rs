@@ -73,17 +73,18 @@ impl Row {
     pub fn insert(&mut self, at: usize, c: char) {
         if at >= self.len() {
             self.string.push(c);
-        } else {
             self.len += 1;
             return;
         }
         let mut result = String::new();
         let mut length = 0;
         for (index, grapheme) in self.string[..].graphemes(true).enumerate() {
-            if index != at {
+            if index == at {
                 length += 1;
                 result.push_str(grapheme);
             }
+            length += 1;
+            result.push_str(grapheme);
         }
         self.len = length;
         self.string = result;
