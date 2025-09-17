@@ -18,7 +18,7 @@
 </div>
 
 > [!IMPORTANT]  
-> Echto has been fixed and now takes input again. Due to a previous logical error in row.rs[row-rs], my `insert` func failed to actually add the character to the row's string, instead only increasing the row's internal length counter. That logical error is what caused Echto to not take input. I've still noticed some hanging when opening certain files, ones I believe are too large for Echto to currently handle.
+> Echto has been fixed and now takes input again. Due to a previous logical error in [row-rs], my `insert` func failed to actually add the character to the row's string, instead only increasing the row's internal length counter. That logical error is what caused Echto to not take input. I've still noticed some hanging when opening certain files, ones I believe are too large for Echto to currently handle.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
