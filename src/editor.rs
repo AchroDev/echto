@@ -49,6 +49,7 @@ pub struct Editor {
     document: Document,
     status_message: StatusMessage,
     quit_times: u8,
+    highlighted_word: Option<String>,
 }
 
 // Implementation of Editor struct
@@ -59,7 +60,7 @@ impl Editor {
         loop {
             // Run fn refresh_screen and if there is an error, die with &error
             if let Err(error) = self.refresh_screen() {
-                die(&error);
+                die(error);
             }
             // If the user commands "quit", break the loop
             if self.should_quit {
@@ -67,7 +68,7 @@ impl Editor {
             }
             // Run fn process_keypress and if there is an error, die with &error
             if let Err(error) = self.process_keypress() {
-                die(&error);
+                die(error);
             }
         }
     }
@@ -82,7 +83,7 @@ impl Editor {
             if let Ok(doc) = doc {
                 doc
             } else {
-                initial_status = format!("ERR: Could not open file: {}", file_name);
+                initial_status = format!("ERROR: Could not open file: {}", file_name);
                 Document::default()
             }
         } else {
@@ -91,23 +92,32 @@ impl Editor {
         // The default state is NOT to quit
         Self {
             should_quit: false,
-            terminal: Terminal::default().expect("Failed to initalize terminal"),
+            terminal: Terminal::default().expect("Failed to initialize terminal"),
             document,
             cursor_position: Position::default(),
             offset: Position::default(),
             status_message: StatusMessage::from(initial_status),
             quit_times: QUIT_TIMES,
+            highlighted_word: None,
         }
     }
 
     // Refreshes the screen on open and exit, also resetting the cursor position to the top left.
-    fn refresh_screen(&self) -> Result<(), std::io::Error> {
+    fn refresh_screen(&mut self) -> Result<(), std::io::Error> {
         Terminal::cursor_hide();
         Terminal::cursor_position(&Position::default());
         if self.should_quit {
             Terminal::clear_screen();
             println!("Thanks for using Echto! - AchroDev\r");
         } else {
+            self.document.highlight(
+                self.highlighted_word.clone(),
+                Some(
+                    self.offset
+                        .y
+                        .saturating_add(self.terminal.size().height as usize),
+                ),
+            );
             self.draw_rows();
             self.draw_status_bar();
             self.draw_message_bar();
@@ -126,14 +136,14 @@ impl Editor {
             let new_name = self.prompt("Save as: ", |_, _, _| {}).unwrap_or(None);
             if new_name.is_none() {
                 self.status_message =
-                    StatusMessage::from("Save aborted. No file_name is given.".to_owned());
+                    StatusMessage::from("Save aborted. No file name provided.".to_owned());
                 return;
             }
             self.document.file_name = new_name;
         }
 
         if self.document.save().is_ok() {
-            self.status_message = StatusMessage::from("File saved successfully".to_string());
+            self.status_message = StatusMessage::from("File saved successfully.".to_string());
         } else {
             self.status_message = StatusMessage::from("Error writing file!".to_string());
         }
@@ -167,7 +177,7 @@ impl Editor {
                     } else if moved {
                         editor.move_cursor(Key::Left);
                     }
-                    editor.document.highlight(Some(query));
+                    editor.highlighted_word = Some(query.to_string());
                 },
             )
             .unwrap_or(None);
@@ -175,7 +185,7 @@ impl Editor {
             self.cursor_position = old_position;
             self.scroll();
         }
-        self.document.highlight(None);
+        self.highlighted_word = None;
     }
 
     // Performs action based on read keypress
@@ -186,12 +196,12 @@ impl Editor {
                 if self.quit_times > 0 && self.document.is_dirty() {
                     self.status_message = StatusMessage::from(format!(
                         "WARNING! File has unsaved changes. Press Ctrl-Q {} more times to quit.",
-                        self.quit_times,
+                        self.quit_times
                     ));
                     self.quit_times -= 1;
                     return Ok(());
                 }
-                self.should_quit = true;
+                self.should_quit = true
             }
             Key::Ctrl('s') => self.save(),
             Key::Ctrl('f') => self.search(),
@@ -234,12 +244,12 @@ impl Editor {
         let offset = &mut self.offset;
         if y < offset.y {
             offset.y = y;
-        } else if y > offset.y.saturating_add(height) {
+        } else if y >= offset.y.saturating_add(height) {
             offset.y = y.saturating_sub(height).saturating_add(1);
         }
         if x < offset.x {
             offset.x = x;
-        } else if x > offset.x.saturating_add(width) {
+        } else if x >= offset.x.saturating_add(width) {
             offset.x = x.saturating_sub(width).saturating_add(1);
         }
     }
@@ -315,7 +325,7 @@ impl Editor {
         let mut welcome_message = format!("Echto text editor -- version {}\r", VERSION);
         let width = self.terminal.size().width as usize;
         let len = welcome_message.len();
-        #[allow(clippy::arithmetic_side_effects, clippy::integer_division)]
+        #[allow(clippy::integer_arithmetic, clippy::integer_division)]
         let padding = width.saturating_sub(len) / 2;
         let spaces = " ".repeat(padding.saturating_sub(1));
         welcome_message = format!("~{}{}", spaces, welcome_message);
@@ -329,10 +339,10 @@ impl Editor {
         let start = self.offset.x;
         let end = self.offset.x.saturating_add(width);
         let row = row.render(start, end);
-        println!("{}\r", row);
+        println!("{}\r", row)
     }
 
-    #[allow(clippy::arithmetic_side_effects, clippy::integer_division)]
+    #[allow(clippy::integer_arithmetic, clippy::integer_division)]
     // Handles drawing each row of the buffer of text being edited
     fn draw_rows(&self) {
         let height = self.terminal.size().height;
@@ -360,7 +370,7 @@ impl Editor {
         } else {
             ""
         };
-        let mut file_name = "[No Name]".to_owned();
+        let mut file_name = "[No Name]".to_string();
         if let Some(name) = &self.document.file_name {
             file_name = name.clone();
             file_name.truncate(20);
@@ -377,7 +387,7 @@ impl Editor {
             self.cursor_position.y.saturating_add(1),
             self.document.len()
         );
-        #[allow(clippy::arithmetic_side_effects)]
+        #[allow(clippy::integer_arithmetic)]
         let len = status.len() + line_indicator.len();
         status.push_str(&" ".repeat(width.saturating_sub(len)));
         status = format!("{}{}", status, line_indicator);
@@ -435,7 +445,7 @@ impl Editor {
 }
 
 // Defines how the program should crash
-fn die(e: &std::io::Error) {
+fn die(e: std::io::Error) {
     Terminal::clear_screen();
     panic!("{}", e);
 }
