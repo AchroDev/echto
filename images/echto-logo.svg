@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    sodipodi:docname="echto-logo.svg"
-   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
    inkscape:export-filename="echto-logo.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
@@ -27,13 +27,13 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
      inkscape:zoom="12.020815"
-     inkscape:cx="19.299856"
-     inkscape:cy="22.211472"
-     inkscape:window-width="1920"
-     inkscape:window-height="1014"
+     inkscape:cx="23.916848"
+     inkscape:cy="26.079762"
+     inkscape:window-width="1272"
+     inkscape:window-height="658"
      inkscape:window-x="1920"
      inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:current-layer="g10" />
   <defs
      id="defs1">
@@ -89,26 +89,26 @@
          xml:space="preserve"
          style="fill:#00aaaa;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
          x="11.634871"
-         y="28.404959"
+         y="27.257425"
          id="text10"
          inkscape:label="Right Arrow"><tspan
            sodipodi:role="line"
            id="tspan10"
            x="11.634871"
-           y="28.404959"
+           y="27.257425"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Hack Nerd Font Mono';-inkscape-font-specification:'Hack Nerd Font Mono'">&gt;</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:4.86263px;fill:#00aaaa;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
-         x="7.4503303"
-         y="34.74535"
+         x="5.0190177"
+         y="33.529694"
          id="text11"
-         transform="scale(1.0593638,0.94396276)"><tspan
-           sodipodi:role="line"
+         transform="scale(1.0593638,0.94396278)"><tspan
            id="tspan11"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.86263px;font-family:'Hack Nerd Font Mono';-inkscape-font-specification:'Hack Nerd Font Mono';stroke-width:0"
-           x="7.4503303"
-           y="34.74535">echto</tspan></text>
+           x="5.0190177"
+           y="33.529694"
+           sodipodi:role="line">TuiText</tspan></text>
     </g>
   </g>
 </svg>
