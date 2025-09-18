@@ -61,7 +61,7 @@ impl Document {
         #[allow(clippy::indexing_slicing)]
         let current_row = &mut self.rows[at.y];
         let new_row = current_row.split(at.x);
-        #[allow(clippy::arithmetic_side_effects)]
+        #[allow(clippy::integer_arithmetic)]
         self.rows.insert(at.y + 1, new_row);
     }
 
@@ -93,7 +93,7 @@ impl Document {
         }
     }
 
-    #[allow(clippy::arithmetic_side_effects, clippy::indexing_slicing)]
+    #[allow(clippy::integer_arithmetic, clippy::indexing_slicing)]
     // Deletes character at given position
     pub fn delete(&mut self, at: &Position) {
         let len = self.rows.len();
