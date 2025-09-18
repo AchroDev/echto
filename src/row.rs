@@ -31,7 +31,7 @@ impl Row {
         let start = cmp::min(start, end);
         let mut result = String::new();
         let mut current_highlighting = &highlighting::Type::None;
-        #[allow(clippy::arithmetic_side_effects)]
+        #[allow(clippy::integer_arithmetic)]
         for (index, grapheme) in self.string[..]
             .graphemes(true)
             .enumerate()
@@ -109,7 +109,7 @@ impl Row {
         self.string = result;
     }
 
-    #[allow(clippy::arithmetic_side_effects)]
+    #[allow(clippy::integer_arithmetic)]
     // Appends another row to Row when called
     pub fn append(&mut self, new: &Self) {
         self.string = format!("{}{}", self.string, new.string);
@@ -165,7 +165,7 @@ impl Row {
         } else {
             at
         };
-        #[allow(clippy::arithmetic_side_effects)]
+        #[allow(clippy::integer_arithmetic)]
         let substring: String = self.string[..]
             .graphemes(true)
             .skip(start)
@@ -181,7 +181,7 @@ impl Row {
                 substring[..].grapheme_indices(true).enumerate()
             {
                 if matching_byte_index == byte_index {
-                    #[allow(clippy::arithmetic_side_effects)]
+                    #[allow(clippy::integer_arithmetic)]
                     return Some(start + grapheme_index);
                 }
             }
