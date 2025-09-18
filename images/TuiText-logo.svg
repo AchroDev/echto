@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="TuiText-logo.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   inkscape:export-filename="echto-logo.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="8.4999998"
+     inkscape:cx="19.352942"
+     inkscape:cy="13.941177"
+     inkscape:window-width="1272"
+     inkscape:window-height="658"
+     inkscape:window-x="2865"
+     inkscape:window-y="204"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g10" />
+  <defs
+     id="defs1">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="9.8326978 : 66.552245 : 1"
+       inkscape:vp_y="-2621.3016 : -1890.2649 : 0"
+       inkscape:vp_z="532.70863 : -145.77679 : 1"
+       inkscape:persp3d-origin="292.24107 : -24.490152 : 1"
+       id="perspective2" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g10"
+       inkscape:label="Terminal"
+       transform="matrix(1.5530092,0,0,1.7428673,0.01759494,-19.050076)">
+      <rect
+         style="fill:#000000;stroke-width:1.61022"
+         id="rect9"
+         width="30.024763"
+         height="18.171982"
+         x="0.43779877"
+         y="15.952231"
+         rx="1.628372" />
+      <ellipse
+         style="fill:#00ff00"
+         id="path9-2"
+         cx="4.0498152"
+         cy="17.436211"
+         rx="0.37470099"
+         ry="0.3529993"
+         inkscape:label="Maximize" />
+      <ellipse
+         style="fill:#ff0000"
+         id="path9"
+         cx="1.8407757"
+         cy="17.444174"
+         rx="0.37470099"
+         ry="0.3529993"
+         inkscape:label="Close" />
+      <ellipse
+         style="fill:#eecc00;fill-opacity:1"
+         id="path9-5"
+         cx="2.9547346"
+         cy="17.441462"
+         rx="0.37470099"
+         ry="0.3529993"
+         inkscape:label="Minimize" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.86263px;fill:#00aaaa;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
+         x="6.234674"
+         y="33.529694"
+         id="text11"
+         transform="scale(1.0593638,0.94396278)"><tspan
+           id="tspan11"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.86263px;font-family:'Hack Nerd Font Mono';-inkscape-font-specification:'Hack Nerd Font Mono';stroke-width:0"
+           x="6.234674"
+           y="33.529694"
+           sodipodi:role="line">TuiText</tspan></text>
+      <rect
+         style="fill:#008080;stroke-width:0.607828"
+         id="rect4"
+         width="18.256775"
+         height="0.67502308"
+         x="7.2610803"
+         y="25.645748" />
+      <rect
+         style="fill:#008080;stroke-width:0.607828"
+         id="rect4-2"
+         width="18.256775"
+         height="0.67502308"
+         x="6.0490112"
+         y="24.43071" />
+      <rect
+         style="fill:#008080;stroke-width:0.607828"
+         id="rect4-0"
+         width="18.256775"
+         height="0.67502308"
+         x="7.336833"
+         y="23.215675" />
+      <rect
+         style="fill:#008080;stroke-width:0.607828"
+         id="rect4-0-7"
+         width="18.256775"
+         height="0.67502308"
+         x="7.4125853"
+         y="21.966888" />
+      <rect
+         style="fill:#008080;stroke-width:0.607828"
+         id="rect4-6"
+         width="18.256775"
+         height="0.67502308"
+         x="6.0111327"
+         y="20.8531" />
+      <rect
+         style="fill:#aa8800;stroke-width:0.607828"
+         id="rect1"
+         width="1.9317342"
+         height="0.67501783"
+         x="5.93538"
+         y="20.853104"
+         rx="0.73860431"
+         ry="0" />
+      <rect
+         style="fill:#aa8800;stroke-width:0.607828"
+         id="rect1-3"
+         width="1.9317342"
+         height="0.67501783"
+         x="6.0868869"
+         y="24.43071"
+         rx="0.73860431"
+         ry="0" />
+    </g>
+  </g>
+</svg>
