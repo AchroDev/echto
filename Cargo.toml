@@ -1,5 +1,5 @@
 [package]
-name = "echto"
+name = "TuiText"
 version = "0.1.2"
 authors = ["AchroDev <achrodev@proton.me>"]
 edition = "2018"
