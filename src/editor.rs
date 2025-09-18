@@ -108,7 +108,7 @@ impl Editor {
         Terminal::cursor_position(&Position::default());
         if self.should_quit {
             Terminal::clear_screen();
-            println!("Thanks for using Echto! - AchroDev\r");
+            println!("Thanks for using TuiText! - AchroDev\r");
         } else {
             self.document.highlight(
                 self.highlighted_word.clone(),
@@ -322,7 +322,7 @@ impl Editor {
 
     // Draws the welcome message
     fn draw_welcome_message(&self) {
-        let mut welcome_message = format!("Echto text editor -- version {}\r", VERSION);
+        let mut welcome_message = format!("TuiText terminal text editor -- version {}\r", VERSION);
         let width = self.terminal.size().width as usize;
         let len = welcome_message.len();
         #[allow(clippy::integer_arithmetic, clippy::integer_division)]
