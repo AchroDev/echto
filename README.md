@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/AchroDev/TuiText">
-    <img src ="images/tuitext-logo.svg" alt="Logo" width="200" height="200">
+    <img src ="images/TuiText-logo.svg" alt="Logo" width="200" height="200">
   </a>
 <h3 align="center"> TuiText - Simple TUI Text Editor ~ AchroDev </h3>
 
