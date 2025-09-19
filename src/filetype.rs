@@ -185,6 +185,34 @@ impl FileType {
                 },
             };
         }
+        if file_name.ends_with(".c") {
+            return Self {
+                name: String::from("C"),
+                hl_opts: HighlightingOptions {
+                    numbers: true,
+                    strings: true,
+                    characters: true,
+                    comments: true,
+                    multiline_comments: true,
+                    primary_keywords: vec![],
+                    secondary_keywords: vec![],
+                },
+            };
+        }
+        if file_name.ends_with(".cpp") {
+            return Self {
+                name: String::from("C++"),
+                hl_opts: HighlightingOptions {
+                    numbers: true,
+                    strings: true,
+                    characters: true,
+                    comments: true,
+                    multiline_comments: true,
+                    primary_keywords: vec![],
+                    secondary_keywords: vec![],
+                },
+            };
+        }
         Self::default()
     }
 }
