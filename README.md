@@ -20,6 +20,9 @@
 > [!IMPORTANT]  
 > TuiText has been fixed and now takes input again. Due to a previous logical error in [row.rs], my `insert` func failed to actually add the character to the row's string, instead only increasing the row's internal length counter. That logical error is what caused TuiText to not take input. After updating the rest of the main code to mostly match the `Hecto` project, I no longer see issues with TuiText hanging on loading large files.
 
+> [!NOTE]--
+> v.0.1.3 brought language and highlighting support for Rust, Kotlin, Java, JavaScript, Go, C, and C++.
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 ![MadeForBadge][made-for-link]
